@@ -10,7 +10,7 @@ on:
   repository_dispatch:
 
 env:
-  IMAGE_NAME: github-stale-pr
+  IMAGE_NAME: ${{ github.repository }}
   REGISTRY: ghcr.io
 
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: admin
     steps:
       - uses: actions/checkout@v4
       - name: Log in to the Container registry
