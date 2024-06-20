@@ -39,21 +39,6 @@ jobs:
           tag_prefix: "v"
         env:
           GITHUB_TOKEN: ${{ github.GITHUB_TOKEN }}
-      - name: Changelog
-        uses: Bullrich/generate-release-changelog@2.0.2
-        id: Changelog
-        env:
-          REPO: ${{ github.repository }}
-      - name: Create Release
-        if: steps.autotag.outputs.tagname != ''
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ github.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.autotag.outputs.tagname }}
-          release_name: Release ${{ steps.autotag.outputs.tagname }}
-          body: |
-            ${{ steps.Changelog.outputs.changelog }}
   publish:
     runs-on: ubuntu-latest
     permissions:
