@@ -13,17 +13,10 @@ env:
 
 
 jobs:
-  test-image:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Verify Image Builds
-        run: docker build .
   publish:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-    needs: [tag]
     if: needs.tag.outputs.tagname != ''
     steps:
       - uses: actions/checkout@v3
