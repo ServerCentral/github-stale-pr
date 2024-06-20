@@ -30,7 +30,6 @@ jobs:
       - uses: butlerlogic/action-autotag@stable
         id: autotag
         with:
-          head_branch: master
           tag_prefix: "v"
         env:
           GITHUB_TOKEN: ${{ github.GITHUB_TOKEN }}
@@ -52,6 +51,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    needs: [tag]
     permissions:
       contents: read
       packages: write
