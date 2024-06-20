@@ -1,3 +1,6 @@
 import sys
+import os
+from pprint import pprint as pp
 
-print(sys.argv)
+pp(sys.argv)
+pp(dict(os.environ))
