@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: action
+  IMAGE_NAME: github-stale-pr
   REGISTRY: ghcr.io
 
 
